@@ -94,7 +94,10 @@ def pregunta_06():
     ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
     """
-    return
+    unique_letters = tbl1["_c4"].drop_duplicates()
+    unique_letters = unique_letters.str.upper().sort_values(ascending=True)
+    list_unique_letters = unique_letters.to_list()
+    return list_unique_letters
 
 
 def pregunta_07():
