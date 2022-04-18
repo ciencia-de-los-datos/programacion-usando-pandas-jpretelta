@@ -132,7 +132,7 @@ def pregunta_08():
 
     """
     tbl0["suma"] = tbl0["_c0"] + tbl0["_c2"]
-    
+
     return tbl0
 
 
@@ -171,11 +171,11 @@ def pregunta_10():
     3   D                  1:2:3:5:5:7
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
-    tbl0 = tbl0.groupby("_c1")["_c2"].apply(
+    tbl0_ds = tbl0.groupby("_c1")["_c2"].apply(
         lambda x: sorted(list(x))
     )
 
-    df_tbl0 = pd.DataFrame(tbl0)
+    df_tbl0 = pd.DataFrame(tbl0_ds, index=tbl0.index)
     df_tbl0.sort_values(["_c1"], ascending=True)
     df_tbl0["_c2"] = df_tbl0["_c2"].map(
         lambda x: ":".join([str(i) for i in x])
