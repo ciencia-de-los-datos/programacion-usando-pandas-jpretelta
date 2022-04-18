@@ -200,7 +200,17 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
-    return
+    tbl1_ds = tbl1.groupby("_c0")["_c4"].apply(
+        lambda x: sorted(list(x))
+    )
+
+    df_tbl1 = pd.DataFrame(tbl1_ds).reset_index()
+    df_tbl1.sort_values(["_c0"], ascending=True)
+    df_tbl1["_c4"] = df_tbl1["_c4"].map(
+        lambda x: ",".join([str(i) for i in x])
+    )
+
+    return df_tbl1
 
 
 def pregunta_12():
