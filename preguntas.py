@@ -175,7 +175,7 @@ def pregunta_10():
         lambda x: sorted(list(x))
     )
 
-    df_tbl0 = pd.DataFrame(tbl0_ds, index=tbl0.index)
+    df_tbl0 = pd.DataFrame(tbl0_ds)
     df_tbl0.sort_values(["_c1"], ascending=True)
     df_tbl0["_c2"] = df_tbl0["_c2"].map(
         lambda x: ":".join([str(i) for i in x])
