@@ -228,6 +228,11 @@ def pregunta_12():
     38   38                    eee:0,fff:9,iii:2
     39   39                    ggg:3,hhh:8,jjj:5
     """
+    tbl2["_c5"] = tbl2["_c5a"].astype(str) + ":" + tbl2["_c5b"].astype(str)
+    tbl2_ds = tbl2.groupby("_c0")["_c5"].apply(
+        lambda x: sorted(list(x))
+    )
+
     df_tbl2 = pd.DataFrame(tbl2_ds).reset_index()
     df_tbl2.sort_values(["_c0"], ascending=True)
     df_tbl2["_c5"] = df_tbl2["_c5"].map(
