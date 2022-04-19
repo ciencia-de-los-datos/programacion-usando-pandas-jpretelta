@@ -263,6 +263,6 @@ def pregunta_13():
         on="_c0"
     )
 
-    df_sum = df_tbl0_tbl2.groupby("_c1")["_c5b"].sum()
+    df_sum_letters = df_tbl0_tbl2.groupby("_c1")["_c5b"].sum()
 
-    return df_sum
+    return df_sum_letters
