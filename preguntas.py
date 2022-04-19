@@ -228,7 +228,13 @@ def pregunta_12():
     38   38                    eee:0,fff:9,iii:2
     39   39                    ggg:3,hhh:8,jjj:5
     """
-    return
+    df_tbl2 = pd.DataFrame(tbl2_ds).reset_index()
+    df_tbl2.sort_values(["_c0"], ascending=True)
+    df_tbl2["_c5"] = df_tbl2["_c5"].map(
+        lambda x: ",".join(x)
+    )
+
+    return df_tbl2
 
 
 def pregunta_13():
